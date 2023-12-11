@@ -29,5 +29,6 @@ return {
     keymap.set("n", "<leader>c", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
     keymap.set("n", "<leader>r", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
     keymap.set("n", "<leader>t", "<cmd>NvimTreeFocus<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+
   end,
 }
