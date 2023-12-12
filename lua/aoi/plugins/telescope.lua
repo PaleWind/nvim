@@ -4,7 +4,9 @@ return {
   dependencies = { 
     'nvim-lua/plenary.nvim', 
     'BurntSushi/ripgrep', 
-    'sharkdp/fd' 
+    'sharkdp/fd',
+    'nvim-tree/nvim-web-devicons',
+    {'nvim-telescope/telescope-fzf-native.nvim', build="make"}
   },
   config = function()
     local builtin = require('telescope.builtin')
@@ -12,5 +14,26 @@ return {
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, {})
     vim.keymap.set('n', '<leader>sb', builtin.buffers, {})
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
+
+    local actions = require("telescope.actions")
+    local telescope = require('telescope')
+    telescope.setup{
+      defaults = {
+        -- Default configuration for telescope goes here:
+        -- config_key = value,
+        mappings = {
+          i = {
+            ["<C-h>"] = "which_key",
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+          }
+        }
+      },
+      pickers = {},
+      extensions = {}
+    }
+
+    telescope.load_extension("fzf");
+
   end
 }
