@@ -13,5 +13,5 @@ vim.opt.rtp:prepend(lazypath)
 
 --require("lazy").setup({})
 
-require("lazy").setup("aoi.plugins")
+require("lazy").setup({{ import = "aoi.plugins" }, { import = "aoi.plugins.lsp" }})
 
