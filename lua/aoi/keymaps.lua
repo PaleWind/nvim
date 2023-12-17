@@ -27,3 +27,7 @@ vim.api.nvim_set_keymap('n', '<leader>n', ':bnext<CR>', {noremap = true, silent 
 vim.api.nvim_set_keymap('n', '<leader>b', ':bprevious<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>h', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>l', '<C-w>w', { noremap = true, silent = true })
+
+--copy to clipboard
+ vim.api.nvim_set_keymap('x', '<leader>c', ':w !pbcopy<CR>', { noremap = true, silent = true })
+
