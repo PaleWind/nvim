@@ -24,11 +24,11 @@ return {
     vim.api.nvim_set_hl(0, 'Visual', { bg = '#49473e' })
 
     -- Change the line number color
-    vim.api.nvim_set_hl(0, 'LineNr', { fg = '#ffffff' })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg = '#3d5066' })
 
     -- Change the current line number color
     vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#ffffff' })
-      
+
   end,
   event = 'VimEnter'  -- or any other suitable event
 }

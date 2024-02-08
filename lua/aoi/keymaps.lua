@@ -25,10 +25,14 @@ vim.api.nvim_create_autocmd({"BufLeave", "FocusLost", "InsertEnter", "WinLeave"}
 --buffer jumping
 vim.api.nvim_set_keymap('n', '<leader>n', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>b', ':bprevious<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>h', '<C-w>h', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>j', '<C-w>j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>k', '<C-w>k', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>l', '<C-w>l', { noremap = true, silent = true })
+--window jumping
+vim.api.nvim_set_keymap('n', '<leader>fh', '<C-W>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fj', '<C-W>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fk', '<C-W>k', { noremap = true, silent = true })
+--new vertical/horizontal windows
+vim.api.nvim_set_keymap('n', '<leader>wv', '<C-W>v', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wh', '<C-W>s', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wc', '<C-W>c', { noremap = true, silent = true })
 
 --copy to clipboard
 vim.api.nvim_set_keymap('x', '<leader>c', ':w !pbcopy<CR>', { noremap = true, silent = true })
