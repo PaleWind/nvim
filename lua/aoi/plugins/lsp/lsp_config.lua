@@ -54,10 +54,19 @@ return {
 		end
 
 
-    lspconfig["csharp_ls"].setup{
+--    lspconfig["omnisharp"].setup({
+--      on_attach = on_attach,
+
+--    })
+--    lspconfig["csharp_ls"].setup{
+--			capabilities = capabilities,
+--			on_attach = on_attach,
+--    }
+
+		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-    }
+		})
 
 		lspconfig["html"].setup({
 			capabilities = capabilities,

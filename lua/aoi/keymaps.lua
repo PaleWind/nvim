@@ -26,9 +26,10 @@ vim.api.nvim_create_autocmd({"BufLeave", "FocusLost", "InsertEnter", "WinLeave"}
 vim.api.nvim_set_keymap('n', '<leader>n', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>b', ':bprevious<CR>', {noremap = true, silent = true})
 --window jumping
-vim.api.nvim_set_keymap('n', '<leader>fh', '<C-W>h', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fj', '<C-W>j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fk', '<C-W>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>mh', '<C-W>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>mj', '<C-W>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>mk', '<C-W>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ml', '<C-W>l', { noremap = true, silent = true })
 --new vertical/horizontal windows
 vim.api.nvim_set_keymap('n', '<leader>wv', '<C-W>v', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>wh', '<C-W>s', { noremap = true, silent = true })
@@ -45,3 +46,20 @@ vim.api.nvim_set_keymap('n', '<leader>ht', ':botright split | term<CR>', { norem
 
 --open new terminal in vertical split
 vim.api.nvim_set_keymap('n', '<leader>vt', ':vsp | term<CR>', { noremap = true, silent = true })
+
+
+function DeleteBufferKeepWindow()
+  -- Get the current buffer number
+  local current_buf = vim.api.nvim_get_current_buf()
+  -- Try to switch to the next buffer
+  vim.cmd('bnext')
+  -- Delete the original buffer
+  vim.cmd('bdelete ' .. current_buf)
+end
+
+-- Map this function to a keybinding, for example <leader>d
+vim.api.nvim_set_keymap('n', '<leader>q', ':lua DeleteBufferKeepWindow()<CR>', { noremap = true, silent = true })
+
+--Show full diagnostic message in floating buffer. q to exit.
+vim.api.nvim_set_keymap('n', '<leader>m', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', {noremap = true, silent = true})
+

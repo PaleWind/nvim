@@ -18,6 +18,7 @@ return {
         "lua_ls",
         "tsserver",
         "csharp_ls",
+        "omnisharp"
       },
       automatic_installation = true
     })

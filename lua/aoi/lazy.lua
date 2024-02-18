@@ -10,6 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.g.OmniSharp_server_use_net6 = 1
 
 --require("lazy").setup({})
 
